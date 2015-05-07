@@ -12,11 +12,11 @@ public:
 	}
 
 	void treatPatient(){
-
+		std::cout << "A nurse is treating a patient." << std::endl;
 	}
 
 	void update(int clock){
-		if ()
+		
 	}
 };
 

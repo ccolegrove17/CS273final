@@ -5,8 +5,7 @@ using namespace std;
 
 int main(){
 	Simulator hospital;
-	hospital.fillVector();
-	//hospital.runSimulation();
+	hospital.runSimulation();
 	//hospital.showStats();
 	Doctor *Craig = new Doctor();
 }

@@ -6,7 +6,7 @@
 #include <iostream>
 #include "EmergencyRoom.h"
 
-class Simulator{
+ class Simulator{
 private:
 	int total_time, clock;
 	EmergencyRoom *emergencyRoom;
@@ -17,9 +17,10 @@ public:
 	std::vector<std::string> people;
 
 	Simulator(){
-		emergencyRoom = new EmergencyRoom();
 		nurse = new Nurse();
 		doctor = new Doctor();
+		fillVector();
+		emergencyRoom = new EmergencyRoom(people);
 	}
 
 	void fillVector(){
@@ -37,11 +38,11 @@ public:
 	}
 
 	void runSimulation(){
-		for (clock = 0; clock < total_time; clock++){
+		//for (clock = 0; clock < total_time; clock++){
 			emergencyRoom->update(clock);
-			nurse->update(clock);
-			doctor->update(clock);
-		}
+			//nurse->update(clock);
+			//doctor->update(clock);
+		//}
 	}
 
 	void showStats(){

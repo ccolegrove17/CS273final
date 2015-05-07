@@ -13,7 +13,7 @@ public:
 	}
 
 	void treatPatient(){
-
+		std::cout << "A doctor is treating a patient." << std::endl;
 	}
 
 	void update(int clock){
