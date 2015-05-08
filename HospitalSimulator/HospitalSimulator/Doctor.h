@@ -7,13 +7,16 @@ class Doctor : public Staff{
 private:
 
 public:
-	Doctor(){
+	Doctor() : Staff(){
 		maxSeverity = 20;
 		maxTime = 20;
+		numServed = 0;
 	}
 
-	void treatPatient(){
-		std::cout << "A doctor is treating a patient." << std::endl;
+	void treatPatient(int clock){
+		numServed++;
+		serviceTime = clock + random.nextInt(maxTime);
+		//std::cout << "A doctor is treating a patient." << std::endl;
 	}
 
 	void update(int clock){

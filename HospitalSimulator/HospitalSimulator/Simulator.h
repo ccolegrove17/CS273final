@@ -5,8 +5,12 @@
 #include <string>
 #include <iostream>
 #include "EmergencyRoom.h"
+#include "Random.h"
 
- class Simulator{
+Random random;
+
+
+class Simulator{
 private:
 	int total_time, clock;
 	EmergencyRoom *emergencyRoom;
@@ -17,8 +21,8 @@ public:
 	std::vector<std::string> people;
 
 	Simulator(){
-		nurse = new Nurse();
-		doctor = new Doctor();
+		//nurse = new Nurse();
+		//doctor = new Doctor();
 		fillVector();
 		emergencyRoom = new EmergencyRoom(people);
 	}
@@ -38,18 +42,33 @@ public:
 	}
 
 	void runSimulation(){
-		//for (clock = 0; clock < total_time; clock++){
-			emergencyRoom->update(clock);
-			//nurse->update(clock);
-			//doctor->update(clock);
-		//}
+		for (clock = 0; clock < total_time; clock++){
+			(*emergencyRoom).update(clock);
+		}
 	}
+
+
+	void enterData(){
+		int doctorNum, nurseNum, arrivalRate;
+		std::cout << "How many doctors work at this emergency room?\n";
+		std::cin >> doctorNum;
+		emergencyRoom->addDoctor(doctorNum);
+		std::cout << "How many nurses work at this emergency room?\n";
+		std::cin >> nurseNum;
+		emergencyRoom->addNurse(nurseNum);
+		std::cout << "What is the arrival rate of patients per hour?\n";
+		std::cin >> arrivalRate;
+		emergencyRoom->setArrivalRate(arrivalRate/60);
+		std::cout << "For how many hours will this simulation run?\n";
+		std::cin >> total_time;
+		total_time = total_time * 60;
+	}
+
 
 	void showStats(){
 
 	}
 
-friend class Nurse;
 };
 
 
