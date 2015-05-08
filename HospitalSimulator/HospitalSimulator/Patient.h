@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <string>
 
+extern Random random;
+
 class Patient{
 private:
 	int severity;
@@ -28,14 +30,13 @@ public:
 	}
 
 	int RandomSeverity(){
-		srand(unsigned int(std::time(NULL)));
-		int prob = rand() % 10;
-		if (prob <= 6)
-			return rand() % 10 + 1;
-		else if (prob <= 8)
-			return rand() % 5 + 11;
+		int prob = random.nextInt(10);
+		if (prob <= 7)
+			return random.nextInt(10);
+		else if (prob <= 9)
+			return random.nextInt(5) + 10;
 		else
-			return rand() % 5 + 16;
+			return random.nextInt(5) + 15;
 	}
 };
 

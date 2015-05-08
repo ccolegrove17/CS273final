@@ -43,8 +43,7 @@ public:
 
 	void update(int clock){
 		if (random.nextDouble() < arrivalRate)
-			patients.push(new Patient(people[random.nextInt(2000)]));
-		//patients.push(new Patient(people[10]));
+				patients.push(new Patient(people[random.nextInt(2000)]));
 		if (!patients.empty()){
 			if (patients.top()->getSeverity() <= 10 && !nurses.empty()){
 				nurses.front()->treatPatient(clock);
@@ -69,7 +68,8 @@ public:
 				nurseTreatment.erase(itN);
 				itN = nurseTreatment.begin();//very inefficient workaround. TRY TO FIX
 			}
-			itN++;
+			if (itN != nurseTreatment.end())//part of the bad workaround
+				itN++;
 		}
 		std::list<Doctor*>::iterator itD = doctorTreatment.begin();
 		while (itD != doctorTreatment.end()){
@@ -79,7 +79,8 @@ public:
 				doctorTreatment.erase(itD);
 				itD = doctorTreatment.begin();//very inefficient workaround. TRY TO FIX
 			}
-			itD++;
+			if (itD != doctorTreatment.end())//part of the bad workaround
+				itD++;
 		}
 
 
