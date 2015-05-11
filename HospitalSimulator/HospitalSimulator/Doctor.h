@@ -10,17 +10,17 @@ public:
 	Doctor() : Staff(){
 		maxSeverity = 20;
 		maxTime = 20;
-		numServed = 0;
+	}
+
+	Doctor(int time){
+		maxSeverity = 20;
+		maxTime = 20;
+		serviceTime = time;
 	}
 
 	void treatPatient(int clock){
-		numServed++;
-		serviceTime = clock + random.nextInt(maxTime);
-		//std::cout << "A doctor is treating a patient." << std::endl;
-	}
-
-	void update(int clock){
-
+		scaledServiceTime = random.nextInt(maxTime);
+		serviceTime = clock + scaledServiceTime;
 	}
 };
 

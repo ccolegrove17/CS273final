@@ -82,6 +82,7 @@
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="EmergencyRoom.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="Record.h" />
     <ClInclude Include="Simulator.h" />
     <ClInclude Include="Nurse.h" />
     <ClInclude Include="Patient.h" />

@@ -7,7 +7,7 @@
 class Random{
 public:
 	Random(){
-		srand((unsigned int)std::time(0));
+		srand((unsigned int)std::time(NULL));
 	}
 
 	Random(int seed){
@@ -15,7 +15,7 @@ public:
 	}
 
 	int nextInt(int n){
-		return int((nextDouble() * n) + 1);
+		return int((nextDouble() * (n-1)) + 1);
 	}
 
 	double nextDouble(){

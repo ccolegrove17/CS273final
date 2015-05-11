@@ -7,9 +7,8 @@ extern Random random;
 
 class Staff{
 public:
-	int maxSeverity, maxTime, serviceTime, numServed;
+	int maxSeverity, maxTime, serviceTime, scaledServiceTime;
 	virtual void treatPatient(int clock) = 0;
-	virtual void update(int clock) = 0;
 };
 
 #endif

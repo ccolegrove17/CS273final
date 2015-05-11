@@ -16,7 +16,8 @@ public:
 	int startServiceTime; //when they begin treatment
 	int endServiceTime; //when they leave the treatment
 
-	Patient(std::string name){
+	Patient(std::string name, int arrivalTime){
+		this->arrivalTime = arrivalTime;
 		this->name = name;
 		severity = RandomSeverity();
 	}

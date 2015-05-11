@@ -10,5 +10,5 @@ int main(){
 	Simulator hospital;
 	hospital.enterData();
 	hospital.runSimulation();
-	//hospital.showStats();
+	hospital.showStats();
 }
